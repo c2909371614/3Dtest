@@ -13,9 +13,12 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        newBtn = transform.GetChild(1).GetComponent<Button>();
-        continueBtn = transform.GetChild(2).GetComponent<Button>();
-        quitBtn = transform.GetChild(3).GetComponent<Button>();
+        //newBtn = transform.GetChild(1).GetComponent<Button>();
+        //continueBtn = transform.GetChild(2).GetComponent<Button>();
+        //quitBtn = transform.GetChild(3).GetComponent<Button>();
+        newBtn = GameObject.Find("NewGame").GetComponent<Button>();
+        continueBtn = GameObject.Find("ContinueGame").GetComponent<Button>();
+        quitBtn = GameObject.Find("QuitGame").GetComponent<Button>();
 
         newBtn.onClick.AddListener(PlayTimeline);//ÐÂÓÎÏ·
         continueBtn.onClick.AddListener(ContinueGame);
