@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 public class MouseManager : Singleton<MouseManager>
 {
@@ -38,6 +39,10 @@ public class MouseManager : Singleton<MouseManager>
                     Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
                 break;
             }
+        }
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            Cursor.SetCursor(arrow, new Vector2(16, 16), CursorMode.Auto);
         }
     }
     void MouseControl()

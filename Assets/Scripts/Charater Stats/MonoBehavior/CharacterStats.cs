@@ -48,7 +48,8 @@ public class CharacterStats : MonoBehaviour
         CurrentHealth = Mathf.Max(CurrentHealth - damage, 0);
         if (attacker.isCritical)
         {
-            defener.GetComponent<Animator>().SetTrigger("hit");
+            if(!defener.CompareTag("Player"))//Íæ¼Ò²»½©Ö± 
+                defener.GetComponent<Animator>().SetTrigger("hit");
         }
         //Update Enemy UI
         UpdateBarHealthOnAttack?.Invoke(CurrentHealth, MaxHealth);
