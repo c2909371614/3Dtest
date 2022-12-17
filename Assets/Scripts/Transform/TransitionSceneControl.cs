@@ -13,6 +13,7 @@ public class TransitionSceneControl : Singleton<TransitionSceneControl>, IEndGam
     bool fadeFinished;
     protected override void Awake()
     {
+        Debug.Log("Trans Awake");
         base.Awake();
         DontDestroyOnLoad(this);
     }

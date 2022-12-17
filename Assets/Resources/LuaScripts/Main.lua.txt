@@ -1,0 +1,31 @@
+--[[
+    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
+    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
+    author:{author}
+    time:2022-12-14 16:33:54
+]]
+require("LuaScripts.init")
+local Dialog = require("LuaScripts.UI.DialogCommon")
+local breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7003)  --本机调试 win mac
+-- local breakSocketHandle,debugXpCall = require("LuaDebugjit")("localhost",7003)
+
+local CUEE = CS.UnityEngine;
+local UI = CS.UnityEngine.UI;
+-- CS.TransitionSceneControl = 
+
+function start()
+    -- local injSelfTmp = injSelf
+    -- local canvas = ReadmeCanvas
+	print("lua start...")
+    local DialogTemp = Dialog.new(ReadmeCanvas, BtnCanvas, SetCanvas, TransitionSceneControl)
+
+end
+
+function update()
+	
+end
+
+function ondestroy()
+    
+end
+

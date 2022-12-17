@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     {
         playerStats = player;
         followCamera = FindObjectOfType<CinemachineFreeLook>();
+        
         if(followCamera != null)
         {
             followCamera.Follow = playerStats.transform.GetChild(2);

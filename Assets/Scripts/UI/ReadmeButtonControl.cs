@@ -7,9 +7,9 @@ public class ReadmeButtonControl : MonoBehaviour
 {
     private void Awake()
     {
-        var foldBtn = transform.GetChild(1).GetComponent<Button>();
+        //var foldBtn = transform.GetChild(1).GetComponent<Button>();
        
-        foldBtn.onClick.AddListener(OnBtnFold);
+        //foldBtn.onClick.AddListener(OnBtnFold);
     }
     
     void OnBtnFold()

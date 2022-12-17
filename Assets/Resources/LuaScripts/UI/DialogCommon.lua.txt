@@ -1,0 +1,65 @@
+--[[
+    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
+    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
+    author:{author}
+    time:2022-12-14 16:56:25
+]]
+local DialogCommon = class("DialogCommon")
+-- local CUEE = CS.UnityEngine;
+local UI = CS.UnityEngine.UI
+
+
+function DialogCommon:ctor(...)
+    -- local buttonTmp = ReadmeCanvas.transform:Find("Unfold")
+    -- buttonTmp:GetComponent("Button").onClick:AddListener(self:onClose())
+
+    self.ReadmeCanvas, self.BtnCanvas, self.SetCanvas, self.TransitionSceneControl = ...
+    self:ReadmeCanvasInit()
+    self:BtnCanvasInit()
+    self:SetCanvasInit()
+end
+
+--操作提示
+function DialogCommon:ReadmeCanvasInit()
+    local gameObjectTmp = CS.UnityEngine.GameObject
+    local unfoldButton = CS.UnityEngine.GameObject.Find("Unfold"):GetComponent("Button")
+    unfoldButton.onClick:AddListener(function()
+        print("close the hint")
+        self.ReadmeCanvas:SetActive(false)
+    end)
+end
+
+--按钮
+function DialogCommon:BtnCanvasInit()
+    
+    local exitBtn = self.BtnCanvas.transform:Find("ExitBtn"):GetComponent('Button')
+    exitBtn.onClick:AddListener(function()
+        print("exit game")
+        self.TransitionSceneControl.TransitionToMain()--回到主菜单
+    end)
+
+    local setBtn = self.BtnCanvas.transform:Find("SetBtn"):GetComponent('Button')
+    setBtn.onClick:AddListener(function()
+        print("open set panel")
+        self.SetCanvas:SetActive(true)
+    end)
+end
+
+--设置页面
+function DialogCommon:SetCanvasInit()
+    
+    local closeBtn = self.SetCanvas.transform:Find("SetPanel/CloseBtn"):GetComponent('Button')
+    closeBtn.onClick:AddListener(function()
+        print("close set panel")
+        self.SetCanvas:SetActive(false)
+    end)
+
+end
+
+
+function DialogCommon:onClose()
+    -- dump("onClose")
+    print("close the hint")
+end
+
+return DialogCommon
