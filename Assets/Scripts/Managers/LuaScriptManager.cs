@@ -25,10 +25,11 @@ public class LuaScriptManager : Singleton<LuaScriptManager>
     {
         Debug.Log("Lua Awake");
         base.Awake();
-        SetLuaAwake();
+        //SetLuaAwake();
     }
     private void Start()
     {
+        SetLuaAwake();
         SetLuaStart();
     }
     private void Update()

@@ -8,6 +8,8 @@ local DialogCommon = class("DialogCommon")
 -- local CUEE = CS.UnityEngine;
 local UI = CS.UnityEngine.UI
 
+local musicBgState = true
+local musicEffectState = true
 
 function DialogCommon:ctor(...)
     -- local buttonTmp = ReadmeCanvas.transform:Find("Unfold")
@@ -35,7 +37,7 @@ function DialogCommon:BtnCanvasInit()
     local exitBtn = self.BtnCanvas.transform:Find("ExitBtn"):GetComponent('Button')
     exitBtn.onClick:AddListener(function()
         print("exit game")
-        self.TransitionSceneControl.TransitionToMain()--回到主菜单
+        self.TransitionSceneControl:TransitionToMain()--回到主菜单
     end)
 
     local setBtn = self.BtnCanvas.transform:Find("SetBtn"):GetComponent('Button')
@@ -52,6 +54,30 @@ function DialogCommon:SetCanvasInit()
     closeBtn.onClick:AddListener(function()
         print("close set panel")
         self.SetCanvas:SetActive(false)
+    end)
+
+    local musicBgBtn = self.SetCanvas.transform:Find("SetPanel/PanelBtn/MusicBG/RawImage"):GetComponent('Button')
+    musicBgBtn.onClick:AddListener(function()
+        print("open or close BG music")
+        if musicBgState then
+            musicBgBtn:GetComponent('RawImage').texture = self.SetCanvas:GetComponent('SetCanvas').circle
+            musicBgState = false
+        else
+            musicBgBtn:GetComponent('RawImage').texture = self.SetCanvas:GetComponent('SetCanvas').check
+            musicBgState = true
+        end
+    end)
+
+    local musicEffectBtn = self.SetCanvas.transform:Find("SetPanel/PanelBtn/MusicEffect/RawImage"):GetComponent('Button')
+    musicEffectBtn.onClick:AddListener(function()
+        print("open or close BG music")
+        if musicEffectState then
+            musicEffectBtn:GetComponent('RawImage').texture = self.SetCanvas:GetComponent('SetCanvas').circle
+            musicEffectState = false
+        else
+            musicEffectBtn:GetComponent('RawImage').texture = self.SetCanvas:GetComponent('SetCanvas').check
+            musicEffectState = true
+        end
     end)
 
 end

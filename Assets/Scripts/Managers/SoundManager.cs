@@ -22,7 +22,8 @@ public class SoundManager : Singleton<SoundManager>
     private LuaTable scriptEnv;
 
     // Start is called before the first frame update
-    public AudioSource audioSource;
+    public AudioSource audioSourceEffect;
+    public AudioSource audioSourceBG;
     public AudioClip hitSound, hurtSound, levelUpSound;
 
     protected override void Awake()
@@ -111,19 +112,19 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void HitAudio()
     {
-        audioSource.clip = hitSound;
-        audioSource.Play();
+        audioSourceEffect.clip = hitSound;
+        audioSourceEffect.Play();
     }
 
     public void HurtAudio()
     {
-        audioSource.clip = hurtSound;
-        audioSource.Play();
+        audioSourceEffect.clip = hurtSound;
+        audioSourceEffect.Play();
     }
     public void LevelUpSoundAudio()
     {
-        audioSource.clip = levelUpSound;
-        audioSource.Play();
+        audioSourceEffect.clip = levelUpSound;
+        audioSourceEffect.Play();
     }
 
 }
